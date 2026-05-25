@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tether — Real moments. Together.</title>
+<meta name="description" content="Tether validates real-world presence at hangouts using BLE and GPS. Plan meetups, confirm arrival, create shared memories.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { height: 100%; }
+  body {
+    font-family: -apple-system, 'Inter', system-ui, sans-serif;
+    background: #0F1115;
+    color: #F1F5F9;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .logo {
+    width: 96px;
+    height: 96px;
+    background: #171A21;
+    border-radius: 24px;
+    border: 1px solid #1F2937;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 48px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .tagline {
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+  .invite-card {
+    background: #171A21;
+    border: 1px solid #1F2937;
+    border-radius: 20px;
+    padding: 32px 28px;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 40px;
+  }
+  .invite-card h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .invite-card p {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-primary {
+    background: #4DA6B3;
+    color: #0F1115;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #F1F5F9;
+    border: 1px solid #1F2937;
+  }
+  .store-badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .badge {
+    background: #171A21;
+    border: 1px solid #1F2937;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: #9CA3AF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .badge-icon { font-size: 18px; }
+  footer {
+    margin-top: 48px;
+    font-size: 12px;
+    color: #374151;
+  }
+  footer a { color: #4B5563; text-decoration: none; }
+  footer a:hover { color: #6B7280; }
+</style>
+</head>
+<body>
+
+<div class="logo">📍</div>
+<h1>TETHER</h1>
+<p class="tagline">Real moments. Together.</p>
+
+<div class="invite-card" id="invite-section">
+  <h2>You've been invited</h2>
+  <p>Someone invited you to a hangout on Tether. Download the app to join and confirm your presence.</p>
+  <a href="https://apps.apple.com/app/tether" class="btn btn-primary">Download Tether</a>
+  <div class="store-badges">
+    <a href="https://apps.apple.com/app/tether" class="badge">
+      <span class="badge-icon"></span> App Store
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.example.tether_app" class="badge">
+      <span class="badge-icon">▶</span> Google Play
+    </a>
+  </div>
+</div>
+
+<footer>
+  <a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a><br><br>
+  © 2026 Tether
+</footer>
+
+<script>
+  // If Tether is installed, try to open it via deep link
+  const path = window.location.pathname;
+  const hangoutMatch = path.match(/^\/join\/(.+)$/);
+  if (hangoutMatch) {
+    const hangoutId = hangoutMatch[1];
+    // Try to open the app
+    const appLink = 'io.supabase.tether://join-hangout/' + hangoutId;
+    window.location.href = appLink;
+    // If app not installed, page stays — shows download prompt
+  }
+</script>
+
+</body>
+</html>
