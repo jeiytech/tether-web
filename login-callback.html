@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signing in to Tether...</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Inter', system-ui, sans-serif;
+    background: #0F1115;
+    color: #F1F5F9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 24px;
+  }
+  h1 { font-size: 24px; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 12px; }
+  p { font-size: 14px; color: #6B7280; }
+</style>
+</head>
+<body>
+<h1>TETHER</h1>
+<p>Signing you in...</p>
+<script>
+  // Pass the full URL (with code param) back to the app via custom scheme
+  const url = window.location.href;
+  const appUrl = url.replace('https://project-1nd2b.vercel.app/login-callback', 'io.supabase.tether://login-callback');
+  window.location.href = appUrl;
+</script>
+</body>
+</html>
