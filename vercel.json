@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/join/:hangoutId", "destination": "/index.html" },
+    { "source": "/login-callback", "destination": "/login-callback.html" },
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/privacy", "destination": "/privacy.html" }
   ],
