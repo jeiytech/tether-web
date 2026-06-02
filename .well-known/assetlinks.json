@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.tether_app",
+    "sha256_cert_fingerprints": [
+      "7B:56:D8:C1:48:48:E0:99:9F:C4:6A:3E:ED:98:CB:2A:B9:51:CC:BC"
+    ]
+  }
+}]
